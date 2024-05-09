@@ -11,7 +11,8 @@ namespace Aula20240509
         public double valor;
         public char tipo;
         public Transacao duplicata;
-        public Transacao(double valor, char tipo)
+        public Conta conta;
+        public Transacao(double valor, char tipo, Conta conta)
         {
             this.valor = valor;
             this.tipo = tipo;
