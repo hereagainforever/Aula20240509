@@ -8,11 +8,42 @@ namespace Aula20240509
 {
     public class Conta
     {
-        public string numero;
-        public double saldo;
-        public double limite;
-        public bool status;
-        public List<Transacao> transacoes;
+        protected string? numero;
+        protected double saldo;
+        protected double limite;
+        protected bool status;
+        protected List<Transacao> transacoes;
+
+
+        public string? Numero
+        {
+            get => this.numero;
+            set 
+            {
+                if (value != null)
+                    this.numero = value;
+            }
+        }
+
+        public double Saldo { get => this.saldo; }
+        public double Limite
+        {
+            get => this.limite;
+            set
+            {
+                if (value >= 0)
+                    this.limite = value;
+            }
+        }
+
+        public bool Status
+        {
+            get => this.status;
+            set => this.status = value;
+        }
+
+        public List<Transacao> Transacoes { get => this.transacoes; }
+
 
         public Conta()
         {
@@ -52,8 +83,8 @@ namespace Aula20240509
         {
             if (destino.status && Sacar(valor) && destino.Depositar(valor))
             {
-                transacoes[transacoes.Count - 1].duplicata = destino.transacoes[destino.transacoes.Count - 1];
-                destino.transacoes[destino.transacoes.Count - 1].duplicata = transacoes[transacoes.Count - 1];
+                transacoes[transacoes.Count - 1].Duplicata = destino.transacoes[destino.transacoes.Count - 1];
+                destino.transacoes[destino.transacoes.Count - 1].Duplicata = transacoes[transacoes.Count - 1];
                 return true;
             }
             return false;
@@ -64,9 +95,9 @@ namespace Aula20240509
             string extrato = "\nTipo\tValor\tDuplicata\n";
             foreach (Transacao t in transacoes)
             {
-                extrato += t.tipo + "\t" + t.valor;
-                if (t.duplicata != null)
-                    extrato += "\t" + t.duplicata.valor + "\n";
+                extrato += t.Tipo + "\t" + t.Valor;
+                if (t.Duplicata != null && t.Duplicata.Conta != null)
+                    extrato += "\t" + t.Duplicata.Conta.numero + "\n";
                 else
                     extrato += "\t-\n";
             }

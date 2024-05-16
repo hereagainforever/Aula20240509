@@ -1,7 +1,7 @@
 ﻿using Aula20240509;
 
 bool existe;
-CCorrente conta = null;
+CCorrente? conta = null;
 double valor;
 string? menu, submenu, numero;
 List<CCorrente> contas = new List<CCorrente>();
@@ -29,7 +29,7 @@ do
                         Console.WriteLine("Digite o número da conta:");
                         numero = Console.ReadLine();
                         foreach (CCorrente c in contas)
-                            if (c.numero == numero)
+                            if (c.Numero == numero)
                                 existe = true;
                         if (!existe)
                         {
@@ -46,7 +46,7 @@ do
                     case "2":
                         if (contas.Count > 0)
                             foreach (CCorrente c in contas)
-                                Console.WriteLine("Conta: " + c.numero + ", Saldo: " + c.saldo);
+                                Console.WriteLine("Conta: " + c.Numero + ", Saldo: " + c.Saldo);
                         else
                             Console.WriteLine("Não existem contas disponíveis");
                         break;
@@ -56,11 +56,11 @@ do
                         numero = Console.ReadLine();
                         conta = null;
                         foreach (CCorrente c in contas)
-                            if (c.numero == numero)
+                            if (c.Numero == numero)
                                 conta = c;
                         if (conta != null)
                         {
-                            conta.status = false;
+                            conta.Status = false;
                             contas.Remove(conta);
                             Console.WriteLine("Conta excluída");
                         }
@@ -82,9 +82,9 @@ do
             numero = Console.ReadLine();
             conta = null;
             foreach (CCorrente c in contas)
-                if (c.numero == numero)
+                if (c.Numero == numero)
                     conta = c;
-            if (conta != null && conta.status)
+            if (conta != null && conta.Status)
             {
                 do
                 {
@@ -115,11 +115,11 @@ do
                         case "3":
                             Console.WriteLine("Digite o número da conta de destino:");
                             string? destino = Console.ReadLine();
-                            CCorrente contaDestino = null;
+                            CCorrente? contaDestino = null;
                             foreach (CCorrente c in contas)
-                                if (c.numero == destino)
+                                if (c.Numero == destino)
                                     contaDestino = c;
-                            if (contaDestino != null && contaDestino.status)
+                            if (contaDestino != null && contaDestino.Status)
                             {
                                 Console.WriteLine("Digite o valor a ser transferido");
                                 Double.TryParse(Console.ReadLine(), out valor);

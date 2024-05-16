@@ -8,7 +8,11 @@ namespace Aula20240509
 {
     public class CCorrente : Conta
     {
-        public bool especial;
+        private bool especial;
+
+        
+        public bool Especial { get => this.especial; }
+
 
         public CCorrente(string numero, double limite) : base(numero)
         {
