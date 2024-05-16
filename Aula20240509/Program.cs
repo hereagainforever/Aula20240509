@@ -118,7 +118,10 @@ do
                             CCorrente? contaDestino = null;
                             foreach (CCorrente c in contas)
                                 if (c.Numero == destino)
+                                {
                                     contaDestino = c;
+                                    break;
+                                }
                             if (contaDestino != null && contaDestino.Status)
                             {
                                 Console.WriteLine("Digite o valor a ser transferido");
