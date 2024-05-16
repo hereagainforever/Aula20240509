@@ -89,7 +89,7 @@ do
                 do
                 {
                     Console.WriteLine("-- Caixa Eletrônico --");
-                    Console.WriteLine("\n1- Saque\n2- Depósito\n3- Transferência\n4- Retornar\n");
+                    Console.WriteLine("\n1- Saque\n2- Depósito\n3- Transferência\n4- Consultar extrato\n5- Retornar\n");
                     Console.WriteLine("Digite a opcao desejada:");
                     submenu = Console.ReadLine();
                     switch (submenu)
@@ -132,7 +132,11 @@ do
                                 Console.WriteLine("Conta de destino não encontrada");
                             break;
 
-                        case "4": break;
+                        case "4":
+                            Console.WriteLine(conta.ConsultarExtrato());
+                            break;
+
+                        case "5": break;
 
                         default:
                             Console.WriteLine("Opção inválida digitada. Tente novamente.");

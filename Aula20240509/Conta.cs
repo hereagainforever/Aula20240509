@@ -58,5 +58,19 @@ namespace Aula20240509
             }
             return false;
         }
+
+        public string ConsultarExtrato()
+        {
+            string extrato = "\nTipo\tValor\tDuplicata\n";
+            foreach (Transacao t in transacoes)
+            {
+                extrato += t.tipo + "\t" + t.valor;
+                if (t.duplicata != null)
+                    extrato += "\t" + t.duplicata.valor + "\n";
+                else
+                    extrato += "\t-\n";
+            }
+            return extrato;
+        }
     }
 }
