@@ -97,7 +97,7 @@ namespace Aula20240509
             {
                 extrato += t.Tipo + "\t" + t.Valor;
                 if (t.Duplicata != null && t.Duplicata.Conta != null)
-                    extrato += "\t" + t.Duplicata.Conta.numero + "\n";
+                    extrato += "\t" + t.Duplicata.Conta.Numero + "\n";
                 else
                     extrato += "\t-\n";
             }

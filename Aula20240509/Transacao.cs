@@ -34,6 +34,7 @@ namespace Aula20240509
         {
             this.valor = valor;
             this.tipo = tipo;
+            this.conta = conta;
         }
     }
 }
